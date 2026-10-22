@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King's Bite Fast Food | Kumasi</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff8f1',
+                            100: '#feeed5',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            danger: '#dc2626',
+                            dark: '#1c1917'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased pb-20 md:pb-0">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-amber-600 text-white text-xs md:text-sm py-2 px-4 text-center font-medium flex items-center justify-center gap-2 shadow-inner">
+        <span class="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span>Open Today until 10:30 PM • Fast Delivery across Kumasi!</span>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo & Meta -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-amber-500/30">
+                        <i class="fa-solid font-black text-2xl fa-burger"></i>
+                    </div>
+                    <div>
+                        <a href="#" class="text-xl sm:text-2xl font-black text-gray-900 tracking-tight block">
+                            KING'S BITE <span class="text-amber-500 font-extrabold text-xs uppercase tracking-widest block -mt-1">Fast Food</span>
+                        </a>
+                        <div class="flex items-center gap-1.5 text-xs text-gray-500">
+                            <span class="flex items-center text-amber-500 font-bold">
+                                3.8 <i class="fa-solid fa-star text-[10px] ml-1"></i>
+                            </span>
+                            <span>(192 reviews)</span>
+                            <span class="text-gray-300">•</span>
+                            <span>GH₵ 50–100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 font-semibold text-sm text-gray-700">
+                    <a href="#hero" class="hover:text-amber-600 transition-colors">Home</a>
+                    <a href="#menu" class="hover:text-amber-600 transition-colors">Our Menu</a>
+                    <a href="#reviews" class="hover:text-amber-600 transition-colors">Reviews</a>
+                    <a href="#contact" class="hover:text-amber-600 transition-colors">Location & Contact</a>
+                </nav>
+
+                <!-- Actions Button -->
+                <div class="flex items-center gap-3">
+                    <a href="tel:0505566555" class="hidden sm:inline-flex items-center gap-2 bg-amber-50 text-amber-700 hover:bg-amber-100 font-bold px-4 py-2.5 rounded-xl text-sm transition-all border border-amber-200">
+                        <i class="fa-solid fa-phone text-amber-600"></i>
+                        <span>050 556 6555</span>
+                    </a>
+
+                    <!-- Cart Toggle Button -->
+                    <button onclick="toggleCart()" class="relative bg-gray-900 hover:bg-black text-white p-3 rounded-xl transition-all shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="hidden sm:inline text-sm font-bold">Cart</span>
+                        <span id="cart-count-badge" class="absolute -top-2 -right-2 bg-amber-500 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center border-2 border-white">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative bg-stone-900 text-white py-16 lg:py-24 overflow-hidden">
+        <div class="absolute inset-0 opacity-40">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80" alt="Restaurant Background" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-900/90 to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-400 text-xs font-bold tracking-wide uppercase">
+                        <i class="fa-solid fa-location-dot"></i> Kumasi's Favorite Spot
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
+                        Smoky Ghanaian Jollof & Tasty Bites
+                    </h1>
+
+                    <p class="text-stone-300 text-base sm:text-lg max-w-xl leading-relaxed">
+                        Enjoy rich, mouthwatering Ghanaian Jollof Rice served with golden grilled chicken, banku, turkey tails, burgers, and shawarmas!
+                    </p>
+
+                    <!-- Service Badges -->
+                    <div class="flex flex-wrap gap-4 py-2">
+                        <div class="flex items-center gap-2 bg-stone-800/80 px-3 py-2 rounded-lg border border-stone-700 text-sm font-medium">
+                            <i class="fa-solid fa-utensils text-amber-500"></i> Dine-in
+                        </div>
+                        <div class="flex items-center gap-2 bg-stone-800/80 px-3 py-2 rounded-lg border border-stone-700 text-sm font-medium">
+                            <i class="fa-solid fa-car text-amber-500"></i> Kerbside Pickup
+                        </div>
+                        <div class="flex items-center gap-2 bg-stone-800/80 px-3 py-2 rounded-lg border border-stone-700 text-sm font-medium">
+                            <i class="fa-solid fa-truck-fast text-amber-500"></i> No-Contact Delivery
+                        </div>
+                    </div>
+
+                    <!-- Call to Actions -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#menu" class="bg-amber-500 hover:bg-amber-600 text-stone-950 font-extrabold px-8 py-4 rounded-xl shadow-lg transition-all text-center">
+                            View Menu & Order
+                        </a>
+                        <a href="tel:0505566555" class="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-4 rounded-xl backdrop-blur-sm transition-all border border-white/20 text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-phone"></i> Call 050 556 6555
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Featured Image -->
+                <div class="relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group">
+                        <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=1000&q=80" alt="Smoky Ghanaian Jollof Rice with Grilled Chicken" class="w-full h-[420px] object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        
+                        <div class="absolute bottom-6 left-6 right-6 p-4 bg-stone-900/90 backdrop-blur-md rounded-2xl border border-white/10 text-white">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="text-xs font-extrabold text-amber-400 uppercase tracking-widest">Featured Special</span>
+                                    <h3 class="text-lg font-bold">Smoky Ghanaian Jollof + Grilled Chicken</h3>
+                                    <p class="text-xs text-stone-300">Served with fried plantains & shito</p>
+                                </div>
+                                <span class="text-lg font-extrabold text-amber-400">GH₵ __</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK INFO CARDS -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
+        <div class="grid md:grid-cols-4 gap-4">
+            <div class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4">
+                <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600 font-bold text-xl shrink-0">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div>
+                    <h4 class="text-sm text-gray-500 font-medium">Customer Rating</h4>
+                    <p class="text-lg font-black text-gray-900">3.8 / 5.0 <span class="text-xs font-normal text-gray-500">(192 reviews)</span></p>
+                </div>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 font-bold text-xl shrink-0">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                    <h4 class="text-sm text-gray-500 font-medium">Working Hours</h4>
+                    <p class="text-lg font-black text-gray-900">Open · Closes 10:30 PM</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 font-bold text-xl shrink-0">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <div>
+                    <h4 class="text-sm text-gray-500 font-medium">Price Range</h4>
+                    <p class="text-lg font-black text-gray-900">GH₵ 50 – 100</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 font-bold text-xl shrink-0">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                    <h4 class="text-sm text-gray-500 font-medium">Location</h4>
+                    <p class="text-lg font-black text-gray-900">Kumasi, Ghana</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section id="menu" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="text-amber-600 font-extrabold text-xs uppercase tracking-widest block mb-1">Delicious Offerings</span>
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900">King's Bite Menu</h2>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterMenu('all')" class="menu-filter-btn active bg-amber-500 text-white font-bold px-4 py-2 rounded-xl text-sm shadow-sm transition-all">
+                    All Items
+                </button>
+                <button onclick="filterMenu('jollof')" class="menu-filter-btn bg-white hover:bg-amber-50 text-gray-700 font-semibold px-4 py-2 rounded-xl text-sm border border-gray-200 transition-all">
+                    Jollof & Rice
+                </button>
+                <button onclick="filterMenu('local')" class="menu-filter-btn bg-white hover:bg-amber-50 text-gray-700 font-semibold px-4 py-2 rounded-xl text-sm border border-gray-200 transition-all">
+                    Local Dishes
+                </button>
+                <button onclick="filterMenu('fastfood')" class="menu-filter-btn bg-white hover:bg-amber-50 text-gray-700 font-semibold px-4 py-2 rounded-xl text-sm border border-gray-200 transition-all">
+                    Burgers & Shawarma
+                </button>
+                <button onclick="filterMenu('drinks')" class="menu-filter-btn bg-white hover:bg-amber-50 text-gray-700 font-semibold px-4 py-2 rounded-xl text-sm border border-gray-200 transition-all">
+                    Drinks
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-container">
+            <!-- Items rendered via JavaScript -->
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews" class="bg-amber-50/60 py-16 border-y border-amber-100/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-amber-600 font-extrabold text-xs uppercase tracking-widest block mb-1">Customer Reviews</span>
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-3">What Customers Say</h2>
+                <div class="flex items-center justify-center gap-2 text-amber-500 font-black text-xl">
+                    <span>3.8</span>
+                    <div class="flex text-amber-400 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-500">(192 reviews)</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Verified Review -->
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-amber-200/50">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-amber-500 text-white font-black flex items-center justify-center text-lg">
+                                M
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Mavis Anane</h4>
+                                <p class="text-xs text-gray-400">1 review · 3 photos</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold text-gray-400">2 years ago</span>
+                    </div>
+                    <div class="flex text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed italic">
+                        "I had a great experience at the place. Their food is so delicious and their customer service is top notch. I recommend to you all in Kumasi."
+                    </p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-600 text-white font-black flex items-center justify-center text-lg">
+                                K
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Kwaku Osei</h4>
+                                <p class="text-xs text-gray-400">Local Guide · 14 reviews</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold text-gray-400">5 months ago</span>
+                    </div>
+                    <div class="flex text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        "The Ghanaian Jollof here hits the right spot! Highly recommended if you are around Kumasi and need quick takeaway."
+                    </p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-green-600 text-white font-black flex items-center justify-center text-lg">
+                                E
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Emmanuel Mensah</h4>
+                                <p class="text-xs text-gray-400">4 reviews</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold text-gray-400">1 year ago</span>
+                    </div>
+                    <div class="flex text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        "Fast kerbside pickup! Banku with tilapia and hot pepper was super fresh."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div>
+                    <span class="text-amber-600 font-extrabold text-xs uppercase tracking-widest block mb-1">Find & Contact Us</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-gray-900">Visit King's Bite Today</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center font-bold text-lg shrink-0 mt-1">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Location / Plus Code</h4>
+                            <p class="text-gray-600 text-sm">P9VQ+H9 Kumasi, Ghana</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center font-bold text-lg shrink-0 mt-1">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Phone Order Number</h4>
+                            <a href="tel:0505566555" class="text-amber-600 font-bold hover:underline">050 556 6555</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center font-bold text-lg shrink-0 mt-1">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Opening Hours</h4>
+                            <p class="text-gray-600 text-sm">Open Daily · Closes at 10:30 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="https://maps.google.com/?q=P9VQ%2BH9+Kumasi" target="_blank" class="bg-gray-900 hover:bg-black text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition-all inline-flex items-center gap-2">
+                        <i class="fa-solid fa-diamond-turn-right text-amber-400"></i> Get Directions
+                    </a>
+                    <a href="tel:0505566555" class="bg-amber-500 hover:bg-amber-600 text-gray-950 font-bold px-6 py-3.5 rounded-xl shadow-md transition-all inline-flex items-center gap-2">
+                        <i class="fa-solid fa-phone"></i> Call to Order (050 556 6555)
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-3xl overflow-hidden shadow-xl border border-gray-200 h-[380px] relative flex flex-col items-center justify-center p-6 text-center">
+                <div class="w-16 h-16 bg-amber-500 text-white rounded-full flex items-center justify-center text-2xl font-black mb-4 animate-bounce">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-1">King's Bite Fast Food</h3>
+                <p class="text-gray-500 text-sm mb-4">P9VQ+H9 Kumasi, Ashanti Region, Ghana</p>
+                <a href="https://maps.google.com/?q=P9VQ%2BH9+Kumasi" target="_blank" class="bg-white hover:bg-gray-50 text-amber-600 border border-amber-300 font-extrabold px-6 py-2.5 rounded-xl shadow-sm text-sm">
+                    Open Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-stone-500">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> King's Bite Fast Food Kumasi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- CART SIDE DRAWER -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300">
+        <!-- Backdrop -->
+        <div onclick="toggleCart()" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+        <!-- Cart Panel -->
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300" id="cart-panel">
+            <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-bag-shopping text-amber-600 text-xl"></i>
+                    <h3 class="text-lg font-extrabold text-gray-900">Your Basket / Cart</h3>
+                </div>
+                <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Items Container -->
+            <div id="cart-items" class="p-6 overflow-y-auto flex-1 space-y-4">
+                <div class="text-center py-12 text-gray-400">
+                    <i class="fa-solid fa-basket-shopping text-4xl mb-3 block"></i>
+                    <p class="font-medium">Your basket is currently empty</p>
+                </div>
+            </div>
+
+            <!-- Cart Footer / Order Button -->
+            <div class="p-6 bg-gray-50 border-t border-gray-100 space-y-3">
+                <a href="tel:0505566555" class="w-full bg-amber-500 hover:bg-amber-600 text-stone-950 font-black py-4 rounded-xl shadow-lg transition-all text-center flex items-center justify-center gap-2 text-base">
+                    <i class="fa-solid fa-phone"></i> Order via Phone Call (050 556 6555)
+                </a>
+                <p class="text-center text-xs text-gray-400">Clicking order will dial 050 556 6555 to place your order with us directly.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // MENU DATA: Prices left blank ("GH₵ __")
+        const menuItems = [
+            {
+                id: 1,
+                name: "Smoky Ghanaian Jollof + Grilled Chicken",
+                category: "jollof",
+                priceText: "GH₵ __",
+                desc: "Rich Ghanaian spicy Jollof rice served with golden grilled chicken, fried plantains, and hot shito.",
+                image: "",
+                popular: true
+            },
+            {
+                id: 2,
+                name: "Banku with Grilled Tilapia & Pepper",
+                category: "local",
+                priceText: "GH₵ __",
+                desc: "Fresh corn & cassava banku served with grilled tilapia, ground hot pepper salsa, and fresh onions.",
+                image: "",
+                popular: true
+            },
+            {
+                id: 3,
+                name: "Special Fried Rice + Chicken",
+                category: "jollof",
+                priceText: "GH₵ __",
+                desc: "Savory vegetable fried rice paired with spiced fried chicken.",
+                image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
+                popular: false
+            },
+            {
+                id: 4,
+                name: "King's Special Beef Burger",
+                category: "fastfood",
+                priceText: "GH₵ __",
+                desc: "Grilled beef patty topped with cheese, lettuce, tomato, and special sauce.",
+                image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
+                popular: false
+            },
+            {
+                id: 5,
+                name: "Chicken Shawarma Wrap",
+                category: "fastfood",
+                priceText: "GH₵ __",
+                desc: "Sliced grilled chicken, fresh veggies, and garlic cream wrapped in warm flatbread.",
+                image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=600&q=80",
+                popular: false
+            },
+            {
+                id: 6,
+                name: "Chofi (Fried Turkey Tail), Yam Chips & Noodles Platter",
+                category: "local",
+                priceText: "GH₵ __",
+                desc: "Crispy fried turkey tails served with golden-yellow yam chips, seasoned noodles topped with a sliced hard-boiled egg, fresh salad, and dark spicy shito sauce.",
+                image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80",
+                popular: true
+            },
+            {
+                id: 7,
+                name: "Chilled Sobolo / Ginger Drink",
+                category: "drinks",
+                priceText: "GH₵ __",
+                desc: "Fresh natural hibiscus and ginger juice blend.",
+                image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80",
+                popular: false
+            }
+        ];
+
+        let cart = [];
+
+        // RENDER MENU
+        function renderMenu(items) {
+            const container = document.getElementById('menu-container');
+            container.innerHTML = items.map(item => `
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative overflow-hidden h-48">
+                            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            ${item.popular ? `<span class="absolute top-3 right-3 bg-amber-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow">Popular</span>` : ''}
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between items-start gap-2 mb-2">
+                                <h3 class="font-bold text-gray-900 text-lg leading-snug">${item.name}</h3>
+                                <span class="font-extrabold text-amber-600 text-lg shrink-0">${item.priceText}</span>
+                            </div>
+                            <p class="text-gray-500 text-xs leading-relaxed mb-4">${item.desc}</p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5">
+                        <button onclick="addToCart(${item.id})" class="w-full bg-stone-900 hover:bg-amber-500 hover:text-stone-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-md">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Basket / Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // FILTER MENU
+        function filterMenu(category) {
+            document.querySelectorAll('.menu-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-amber-500', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+
+            event.target.classList.remove('bg-white', 'text-gray-700');
+            event.target.classList.add('bg-amber-500', 'text-white');
+
+            if (category === 'all') {
+                renderMenu(menuItems);
+            } else {
+                const filtered = menuItems.filter(item => item.category === category);
+                renderMenu(filtered);
+            }
+        }
+
+        // CART LOGIC
+        function addToCart(id) {
+            const item = menuItems.find(i => i.id === id);
+            const existing = cart.find(c => c.id === id);
+            
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...item, qty: 1 });
+            }
+            updateCartUI();
+            openCart();
+        }
+
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+
+            document.getElementById('cart-count-badge').textContent = totalCount;
+
+            const container = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3 block"></i>
+                        <p class="font-medium">Your basket is currently empty</p>
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center justify-between gap-3 border-b border-gray-100 pb-3">
+                    <div>
+                        <h4 class="font-bold text-gray-900 text-sm">${item.name}</h4>
+                        <p class="text-xs text-amber-600 font-bold">Qty: ${item.qty}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 rounded bg-gray-100 font-bold text-xs hover:bg-gray-200">-</button>
+                        <span class="text-xs font-bold">${item.qty}</span>
+                        <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 rounded bg-gray-100 font-bold text-xs hover:bg-gray-200">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function changeQty(id, delta) {
+            const item = cart.find(c => c.id === id);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(c => c.id !== id);
+                }
+            }
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const panel = document.getElementById('cart-panel');
+            
+            if (drawer.classList.contains('invisible')) {
+                openCart();
+            } else {
+                panel.classList.add('translate-x-full');
+                drawer.classList.add('opacity-0');
+                setTimeout(() => {
+                    drawer.classList.add('invisible');
+                }, 300);
+            }
+        }
+
+        function openCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const panel = document.getElementById('cart-panel');
+            drawer.classList.remove('invisible', 'opacity-0');
+            panel.classList.remove('translate-x-full');
+        }
+
+        // INITIAL LOAD
+        window.onload = () => {
+            renderMenu(menuItems);
+        }
+    </script>
+</body>
+</html>
